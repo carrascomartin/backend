@@ -75,6 +75,21 @@ Preparate para responder:
 
 ## 🔐 La solución
 
+> **Si trabajás en un fork**, la carpeta `solucion/` llega cuando sincronizás
+> tu fork con la cátedra (`upstream`). Si nunca agregaste `upstream`:
+>
+> ```bash
+> git remote add upstream https://github.com/desasoftfrlptn/backend.git
+> git fetch upstream
+> git checkout main
+> git merge upstream/main
+> git push origin main
+> ```
+>
+> Después de eso, `solucion/` aparece en tu repo y podés comparar.
+
+
+
 La solución completa (V2 por feature + tests) está en `solucion/`. Comparala con
 tu reorganización. La gracia está en haberla hecho vos primero.
 

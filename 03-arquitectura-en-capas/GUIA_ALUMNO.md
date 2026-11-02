@@ -291,12 +291,33 @@ con el flujo feliz + casos límite, y preparate para responder en voz alta:
 
 ## 🔐 La solución
 
+> **Si trabajás en un fork**, la rama `solucion` NO está en tu `origin` (tu fork):
+> tenés que traerla del repo de la cátedra (`upstream`). Si nunca agregaste
+> `upstream`, hacelo una vez:
+>
+> ```bash
+> git remote add upstream https://github.com/desasoftfrlptn/backend.git
+> git fetch upstream
+> ```
+>
+> Y para sincronizar los cambios nuevos de la cátedra en tu fork:
+>
+> ```bash
+> git checkout main
+> git fetch upstream
+> git merge upstream/main
+> git push origin main
+> ```
+>
+> Recién entonces podés ver la solución:
+>
+
 > La solución completa **NO está en este repo**. El docente la libera al
 > final de la clase en la rama `solucion`. Cuando se anuncie, hacé:
 >
 > ```bash
-> git fetch origin
-> git diff main..origin/solucion
+> git fetch upstream solucion
+> git diff main..upstream/solucion
 > ```
 >
 > Y compará tu código con la solución.
