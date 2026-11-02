@@ -19,15 +19,9 @@ style: |
   strong { color: #f1f5f9; }
   em { color: #cbd5e1; }
   a { color: #93c5fd; }
-
-  /* ---- Slides densas: un escalón SUAVE (0.95, no 0.92) ----
-     Ojo: `smaller` se multiplica con pre/table. Antes
-     0.92 x 0.82 x 29px = 21.9px de código -> chico en proyector. */
   section.smaller { font-size: 0.95em; }
   section.smaller h1 { font-size: 1.45em; }
   section.smaller h2 { font-size: 1.2em; }
-
-  /* ---- Código ---- */
   code {
     color: #93c5fd;
     background: #1e293b;
@@ -43,32 +37,11 @@ style: |
     font-size: 0.88em;
     line-height: 1.35;
     color: #e2e8f0;
-    /* Red de seguridad: si una línea es muy larga se envuelve,
-       nunca se recorta (el overflow de Marp corta el texto en silencio). */
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
-  pre code {
-    background: none;
-    padding: 0;
-    color: #e2e8f0;
-  }
-
-  /* ---- Resaltado sintáctico (paleta clara sobre fondo oscuro) ---- */
-  pre code :is(.hljs-keyword, .hljs-doctag, .hljs-template-tag, .hljs-template-variable, .hljs-variable.language_, .hljs-selector-tag) { color: #f472b6 !important; }
-  pre code :is(.hljs-string, .hljs-regexp, .hljs-meta .hljs-string) { color: #86efac !important; }
-  pre code :is(.hljs-title, .hljs-title.function_, .hljs-title.class_, .hljs-name, .hljs-quote, .hljs-selector-pseudo) { color: #7dd3fc !important; }
-  pre code :is(.hljs-attr, .hljs-attribute, .hljs-literal, .hljs-meta, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id, .hljs-variable) { color: #93c5fd !important; }
-  pre code :is(.hljs-number, .hljs-symbol) { color: #fcd34d !important; }
-  pre code :is(.hljs-operator, .hljs-params, .hljs-subst, .hljs-type) { color: #cbd5e1 !important; }
-  pre code :is(.hljs-comment, .hljs-code, .hljs-formula) { color: #94a3b8 !important; font-style: italic; }
-  pre code :is(.hljs-section, .hljs-bullet) { color: #f0abfc !important; font-weight: 700; }
-  pre code .hljs-built_in { color: #fca5a5 !important; }
-
-  /* ---- Tablas ---- */
+  pre code { background: none; padding: 0; color: #e2e8f0; }
   table {
-    /* Marp pone display:block + width:max-content: el fondo ocupa 100%
-       pero las columnas no se estiran y queda un bloque muerto. */
     display: table;
     font-size: 0.85em;
     background: #1e293b;
@@ -78,81 +51,28 @@ style: |
     width: 100%;
   }
   thead { background: #334155; }
-  th {
-    color: #93c5fd;
-    padding: 5px 10px;
-    text-align: left;
-    border-bottom: 2px solid #3b82f6;
-    background: #334155;
-  }
-  td {
-    color: #cbd5e1;
-    padding: 5px 10px;
-    border-bottom: 1px solid #334155;
-    background: #1e293b;
-  }
+  th { color: #93c5fd; padding: 5px 10px; text-align: left; border-bottom: 2px solid #3b82f6; background: #334155; }
+  td { color: #cbd5e1; padding: 5px 10px; border-bottom: 1px solid #334155; background: #1e293b; }
   tr:hover td { background: #263348; }
-
-  /* ---- Blockquote ---- */
-  blockquote {
-    border-left: 4px solid #3b82f6;
-    background: #1e293b;
-    padding: 8px 14px;
-    border-radius: 0 8px 8px 0;
-    margin: 8px 0;
-  }
-  blockquote p {
-    color: #94a3b8;
-    font-style: italic;
-  }
-
-  /* ---- Listas ---- */
+  blockquote { border-left: 4px solid #3b82f6; background: #1e293b; padding: 8px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; }
+  blockquote p { color: #94a3b8; font-style: italic; }
   ul { list-style-type: none; padding-left: 0; }
   ul li::before { content: "▸ "; color: #93c5fd; font-weight: bold; }
   ul li { color: #cbd5e1; line-height: 1.5; }
   ol li { color: #cbd5e1; line-height: 1.5; }
-
-  /* ---- Lead slides ---- */
   section.lead h1 { font-size: 2.2em; }
   section.lead p { color: #94a3b8; }
-
-  /* ---- Checkpoint ---- */
-  section.checkpoint {
-    background-color: #052e16;
-  }
-  section.checkpoint h1 {
-    color: #34d399;
-    font-size: 1.7em;
-  }
-  section.checkpoint p, section.checkpoint li {
-    color: #a7f3d0;
-  }
-
-  /* ---- Fase ---- */
-  section.fase {
-    background-color: #1e1b4b;
-  }
-  section.fase h1 { color: #c4b5fd; font-size: 1.7em; }
-  section.fase h2 { color: #ddd6fe; }
-
-  /* ---- Desbloqueo (errores comunes) ---- */
-  section.desbloqueo {
-    background-color: #2a1a1a;
-  }
-  section.desbloqueo h1 { color: #fca5a5; font-size: 1.6em; }
-
-  /* ---- Checklists de checkpoint: el bullet ES el checkbox ----
-     Marp NO convierte "- [ ]" en checkbox: lo deja como texto "[ ]",
-     y encima el ::before de ul le agrega "▸ " -> se ve "▸ [ ]". */
-  section.check ul li::before { content: "☐  "; color: #34d399; font-weight: 700; }
-
-  /* ---- Footer ---- */
   footer { color: #64748b; font-size: 0.65em; }
 ---
----
-
 
 <!-- _class: lead -->
+<!-- note: |
+  Bienvenida al anexo 03.5. Hoy NO construimos una API nueva: reorganizamos
+  la del 03 para entender por qué elegimos un layout y no otro.
+  Recordar: este módulo es ANEXO. Si alguien no hizo el 03, enviarlo a leer
+  el MATERIAL_PREVIO del 03 antes.
+  Timing: apertura 0-2 min
+-->
 
 # Arquitectura Modular
 
@@ -162,6 +82,12 @@ Hoy no aprendés un layout. **Aprendés a elegir uno.**
 
 ---
 
+<!-- note: |
+  Objetivos medibles. Decirlos en voz alta. Son la promesa del taller:
+  al final, cada alumno tiene que poder tildar los 4.
+  Timing: apertura 2-4 min
+-->
+
 ## Objetivos
 
 1. Conocer los **dos ejes** de partición: por capa (horizontal) vs por feature (vertical).
@@ -169,7 +95,16 @@ Hoy no aprendés un layout. **Aprendés a elegir uno.**
 3. Entender **Screaming Architecture** y **Hexagonal** como escalones siguientes.
 4. Probar la promesa del Módulo 03: testear el negocio **sin base de datos**.
 
+> Cuatro objetivos, 60 minutos de actividad. Los construís vos en grupo.
+
 ---
+
+<!-- note: |
+  Activar con una pregunta al aire: "¿cuántos archivos tocaron para agregar
+  `projects` en el 03?". Esperar respuestas. La respuesta es 4 carpetas.
+  Eso es el gancho del problema.
+  Timing: apertura 4-7 min
+-->
 
 ## El problema: cuando el sistema crece
 
@@ -184,7 +119,18 @@ Para agregar `projects` en el layout por capa tuviste que tocar:
 **4 carpetas por cada feature nueva.** Y si dos equipos trabajan en paralelo,
 pisan los mismos archivos.
 
+> El costo no es el número de archivos: es la **localidad del cambio**. Cuanto
+> más disperso, más conflictos de merge y más miedo a tocar.
+
 ---
+
+<!-- note: |
+  Mostrar los dos árboles lado a lado. Preguntar: "¿qué cambia?".
+  Respuesta clave: NO desaparecen las capas. Cambia el eje de agrupación.
+  Si alguien dice "en V2 ya no hay capas", corregirlo: cada feature tiene
+  adentro controller, service y repository.
+  Timing: apertura 7-10 min
+-->
 
 ## Los dos ejes
 
@@ -207,6 +153,13 @@ app/  tasks/{controller,service,repository,schemas,ports}.py
 
 ---
 
+<!-- note: |
+  LA slide del módulo. Dejarla visible y pedir que anoten los números.
+  La tabla es la métrica que decide: no es opinión, es conteo.
+  Preguntar: "¿cuántos archivos tocás para agregar `billing` en V1? ¿y en V2?".
+  Timing: apertura 10-13 min (fin de apertura)
+-->
+
 ## El test del cambio
 
 > **Agregá `billing` y contá cuántos archivos y carpetas tocás.**
@@ -223,6 +176,13 @@ app/  tasks/{controller,service,repository,schemas,ports}.py
 
 ---
 
+<!-- note: |
+  Activar: "¿qué grita el árbol de su proyecto actual?".
+  Respuesta esperada: framework (routers, models, utils). El objetivo es que
+  grite el dominio. Conectar con el Módulo 03: ahí el árbol gritaba capas.
+  Timing: actividad 13-15 min (transición)
+-->
+
 ## Screaming Architecture
 
 El árbol de arriba tiene que gritar el **dominio**, no el framework.
@@ -237,7 +197,17 @@ app/  tasks/  projects/  billing/  shared/
 
 Si mañana cambiás FastAPI por Django, el árbol del dominio no debería moverse.
 
+> Robert C. Martin: la estructura tiene que gritar los **casos de uso del
+> negocio**, no el framework con el que lo implementaste.
+
 ---
+
+<!-- note: |
+  El escalón siguiente. Mostrar el código del puerto (Protocol) y el fake.
+  La pregunta clave: "¿por qué esto permite testear sin base?".
+  Respuesta: porque el service no conoce la clase concreta, solo el contrato.
+  Timing: actividad 15-18 min
+-->
 
 ## Puertos y adaptadores (hexagonal)
 
@@ -255,7 +225,17 @@ class TaskService:
 Con el puerto podés inyectar un **fake in-memory** y testear el negocio **sin
 base de datos**. Esa es la prueba de que la promesa del Módulo 03 era verdad.
 
+> La diferencia exacta entre "capas" y "hexagonal": el service depende de una
+> abstracción, no de una clase concreta. `Depends()` ya era IoC; esto es IoC
+> contra un contrato.
+
 ---
+
+<!-- note: |
+  El plan de la actividad. Fijar expectativas: 60 min de sprint.
+  Recordar roles rotativos (piloto/navegante/investigador).
+  Timing: actividad 18-20 min (fin apertura)
+-->
 
 ## El plan — 60 min
 
@@ -267,7 +247,16 @@ base de datos**. Esa es la prueba de que la promesa del Módulo 03 era verdad.
 | 40-50 | Hexagonal | Puerto + fake + test sin base |
 | 50-60 | Cierre | Reflexión + descubrimientos |
 
+> **Regla del taller**: el docente NO da respuestas. Hace preguntas.
+> *"¿Cuántos archivos tocás?"* es la pregunta que lo destraba todo.
+
 ---
+
+<!-- note: |
+  Explicar el flujo de trabajo antes del setup.
+  Cada alumno trabaja en SU fork. La solución se libera al final en solucion/.
+  Timing: actividad 0-1 min (transición)
+-->
 
 ## El plan: fork → clonar → desarrollar
 
@@ -278,9 +267,17 @@ cd backend/03.5-arquitectura-modular
 
 La solución (V2 + tests) se libera al final en `solucion/`.
 
+> Si trabajás en un fork, sincronizalo primero:
+> `git fetch upstream && git merge upstream/main`.
+
 ---
 
 <!-- _class: lead -->
+<!-- note: |
+  Reflexión final. Preguntas al aire (5 min). Cerrar con la frase.
+  Anunciar los ejercicios de cierre (en GUIA_DOCENTE/GUIA_ALUMNO).
+  Timing: actividad 50-60 min
+-->
 
 ## Capas es un eje. Features es el otro.
 
