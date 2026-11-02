@@ -38,6 +38,7 @@ El **único objetivo** es **formar competencias profesionales** en desarrollo ba
 | 01 | [Mi Primera APP](./01-mi-primera-app/) | ✅ | Taller guiado: API de Tareas + Frontend React en 90 minutos |
 | 02 | [Persistencia con PostgreSQL](./02-persistencia-postgresql/) | ✅ | Datos que sobreviven: psycopg + pool, SQL básico, Docker demo + Supabase. Frontend del 01 reutilizado sin cambios |
 | 03 | [Arquitectura en Capas + ORM](./03-arquitectura-en-capas/) | ✅ | Controller → Service → Repository, SQLModel (ORM), CRUD completo, frontend TypeScript. Taller por grupos en aula invertida |
+| 03.5 | [Arquitectura Modular](./03.5-arquitectura-modular/) | ✅ | Anexo del 03: Layered vs Feature-Based vs Screaming. Test del cambio medido, puertos (Protocol) y tests sin base. Taller por grupos |
 | 04 | [Autenticación y Seguridad](./04-autenticacion-seguridad/) | ✅ | Usuarios, register + login, hash Argon2, JWT, sesiones (server-side vs token), SSO vs JWT, seguridad OWASP. Taller por grupos en aula invertida |
 | 05 | [Métodos de Autenticación](./05-metodos-autenticacion/) | ✅ | Los 7 métodos lado a lado (Basic, Session, Token, JWT, Cookie, OAuth2, SSO), rate limiting, security headers, laboratorio frontend. Clase asincrónica |
 | 06 | [**Autorización RBAC**](./06-autorizacion-rbac/) | ✅ | **Entrega OBLIGATORIA**: roles admin/editor/viewer, object-level access control (IDOR), scopes en JWT, multi-tenancy, deny-by-default. 44 checks de verificación + defensa oral |
