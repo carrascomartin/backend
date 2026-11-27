@@ -1,7 +1,3 @@
-"""
-Controller de USUARIOS — gestión de usuarios y roles (solo admin, solo tu empresa).
-"""
-
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from app import storage
@@ -15,7 +11,6 @@ router = APIRouter(prefix="/api", tags=["2 · Usuarios (admin)"])
 def list_users(
     current_user: User = Depends(require_role(Role.ADMIN)),
 ):
-    """Lista los usuarios de TU empresa (el storage filtra por tu tenant)."""
     return storage.list_users(tenant_id=current_user.tenant_id)
 
 
@@ -24,7 +19,6 @@ def get_user(
     user_id: int,
     current_user: User = Depends(require_role(Role.ADMIN)),
 ):
-    """Detalle de un usuario. 404 si no existe; 403 si es de otra empresa."""
     user = storage.get_user_by_id(user_id)
     if user is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuario no encontrado")
@@ -42,7 +36,6 @@ def change_role(
     body: RoleChange,
     current_user: User = Depends(require_role(Role.ADMIN)),
 ):
-    """Cambia el rol de un usuario: solo admin, y solo de su empresa."""
     user = storage.get_user_by_id(user_id)
     if user is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuario no encontrado")
