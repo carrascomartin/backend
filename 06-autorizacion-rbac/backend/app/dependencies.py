@@ -1,14 +1,3 @@
-"""
-Dependencias de AUTORIZACIÓN — el corazón de la entrega del módulo 06.
-
-  1. get_current_user  → AUTENTICACIÓN (401 si no hay token válido).
-  2. require_role      → AUTORIZACIÓN por rol del USUARIO (403).
-  3. require_scope     → AUTORIZACIÓN por scope del TOKEN (403).
-
-El ROL se relee de storage en cada request (el cambio de rol es inmediato).
-El SCOPE vive en el token (lo fijó el login), por eso se lee de ahí.
-"""
-
 from typing import Annotated, Callable
 
 from fastapi import Depends, HTTPException, Request, status
@@ -19,10 +8,6 @@ from app import security, storage
 from app.models import Role, User
 
 bearer_scheme = HTTPBearer(auto_error=False)
-
-
-# ── 1 · Autenticación (dado) ───────────────────────────────────────────────
-
 
 def get_current_user(
     request: Request,
@@ -50,10 +35,6 @@ def get_current_user(
     request.state.token_payload = payload
     return user
 
-
-# ── 2 · Autorización por ROL ───────────────────────────────────────────────
-
-
 def require_role(required: Role) -> Callable:
     """Exige que el usuario tenga el rol `required` (o 403)."""
 
@@ -68,10 +49,6 @@ def require_role(required: Role) -> Callable:
         return current_user
 
     return checker
-
-
-# ── 3 · Autorización por SCOPE del token ───────────────────────────────────
-
 
 def require_scope(required: str) -> Callable:
     """Exige que el TOKEN tenga `required` en su scope (o 403)."""
